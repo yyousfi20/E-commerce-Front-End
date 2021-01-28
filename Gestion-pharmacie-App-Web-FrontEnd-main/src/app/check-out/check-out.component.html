@@ -1,0 +1,71 @@
+<div class="card" style="width: 80%;">
+  <div class="card-body">
+<div class="row">
+<div class="col-md-8">
+<h2></h2>
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="">Name</label>
+    <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      <div *ngIf="name.errors.required">Name is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="price">The amount paid</label>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input #price="ngModel" required [(ngModel)]="shipping.theAmountPaid" name="price" id="price" type="number" class="form-control" [min]="0">
+    </div>
+    <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+      <div *ngIf="price.errors.required">is required.</div> 
+      <div *ngIf="price.errors.min">price should be 0 or higher.</div> 
+
+    </div>
+    
+  </div>
+  <button type="button" (click)="placeOrder()" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Place Invoice
+  </button>
+
+  
+    
+    
+</form>
+</div>
+<div class="col">
+<app-ordersummery></app-ordersummery>
+</div>
+</div>
+</div></div>
+<div class="container">
+  
+  <!-- Button to Open the Modal -->
+ 
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thank you!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+<p>We received your order and will process it within the next 24 hours!</p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="see()" class="btn btn-secondary" data-dismiss="modal">see my orders</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>

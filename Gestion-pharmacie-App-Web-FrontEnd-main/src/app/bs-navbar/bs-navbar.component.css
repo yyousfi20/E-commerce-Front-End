@@ -1,0 +1,31 @@
+
+.dropdown-toggle { 
+  cursor: pointer;
+ 
+}
+.navbar.navbar-expand-md 
+{
+  color:white ;
+}
+.navbar-light .navbar-brand {
+  color: green;
+}
+.fa-heart
+  {
+    color:white;
+    
+  }
+  .nav-link.dropdown-toggle
+  {
+    
+    color: green;
+  }
+  .fa.fa-shopping-cart
+  {
+    color: white;
+  }
+  .dropdown-menu{
+    background-color:#F4F6F6;
+  
+  }
+  

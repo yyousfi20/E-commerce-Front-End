@@ -1,0 +1,138 @@
+<style>
+
+  .form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0; 
+}
+  
+</style>
+  <div class="form-group">
+    <div class ="row">
+      <div class="col-md-3">
+    <input #query1
+    (keyup)="filter(query1.value)" id="exampleFormControlInput6" type="email" placeholder="What're you looking for? " class="form-control form-control-underlined">
+    </div>
+    
+
+<data-table 
+[items]="items"
+[itemCount]="itemCount"
+(reload)="reloadItems($event)"
+
+>
+<data-table-column 
+[property]="'title'"
+[header]="'Title'"
+[sortable]="true"
+[resizable]="true"
+></data-table-column>
+
+<data-table-column 
+[property]="'price'"
+[header]="'Price'"
+[sortable]="true"
+[resizable]="true"
+>
+<ng-template #dataTableCell let-item="item">
+{{ item.price | currency:'USD':true }}
+</ng-template>
+
+</data-table-column>
+
+<data-table-column
+[property]="'id'"
+>
+<ng-template #dataTableCell let-item="item" >
+<div  style="padding-left: 30%;" >
+<button class="btn btn-light btn-lg" (click)="ajouter(item.id)" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus" aria-hidden="true"></i>
+</button>
+</div></ng-template>
+</data-table-column>
+
+</data-table>
+<div class="row">
+<button  class="btn btn-primary"  data-toggle="modal" data-target="#myModal2">confirmer</button>       </div>
+<button  style="margin-left: 2em;" class="btn btn-primary"  data-toggle="modal" data-target="#myModal3">Annuler</button>   
+
+</div>
+
+</div>
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add the quantity</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+
+          <div class="form-group">
+            
+            <input #name="ngModel"  [(ngModel)]="quantity"  name="q" id="title" type="text" class="form-control" required>
+            <div>
+             
+            </div>
+          </div>
+          <button class="btn btn-primary" >save</button>
+        </form>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal2">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Custmer Informations</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-check-out></app-check-out>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal3">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Cancellation of the invoice</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+       
+The registration of this invoice is canceled.
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">Ok</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

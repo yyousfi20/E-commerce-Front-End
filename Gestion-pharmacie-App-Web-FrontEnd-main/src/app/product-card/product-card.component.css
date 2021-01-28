@@ -1,0 +1,25 @@
+
+.card { 
+    margin-bottom: 30px;
+  }
+  
+  .card-footer {
+    padding: 0;
+  }
+  .card-footer button {
+    cursor: pointer;
+  }
+  .card-img-top {
+    cursor: pointer;
+  }
+
+  .fa-heart-o
+  {
+color: red;
+cursor: pointer;
+  }
+  .fa-heart
+  {
+    color: red;
+    cursor: pointer;
+  }

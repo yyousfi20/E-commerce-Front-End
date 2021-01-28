@@ -1,0 +1,23 @@
+<app-home></app-home>
+<div class="row">
+  
+  <div class="col-md-8">
+    <div class="row">
+        <ng-container *ngFor="let p of filtredproduct; let i = index">
+          <div class="col">
+            <product-card [product]="p" [shopping-cart]="cart" [AddToWishList]="wishlist.indexOf(p.id) >= 0"></product-card>
+          </div>
+        <div *ngIf="(i + 1 ) % 2 == 0" class="w-100"></div>
+      </ng-container>
+      <lastviewproduct></lastviewproduct>
+      
+    </div>
+    
+  </div>
+  <div class="col-md-2">
+    <app-ordersummery></app-ordersummery>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,10 @@
+<div *ngIf="product.title"
+class="card" style="width: 15rem;">
+ <img class="card-img-top" [src]="product.imageUrl" (click)="myFunction(product)" *ngIf="product.imageUrl">
+ <div class="card-body">
+   <h4 class="card-title">{{ product.title }}</h4>
+   <p class="card-text">{{ product.price | currency:'USD':true }}</p>
+
+ </div>
+
+ </div>

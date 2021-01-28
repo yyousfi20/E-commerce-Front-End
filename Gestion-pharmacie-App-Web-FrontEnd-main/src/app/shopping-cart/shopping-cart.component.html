@@ -1,0 +1,51 @@
+<h1>Shopping Cart</h1>
+<div class="card" style="width: 80%;">
+  <div class="card-body">
+    <p>
+      You have {{TotalItem}}  items in your shopping cart.
+      <button  (click)="clearCart()" class="float-right btn btn-light btn-sm">Clear Shopping Cart</button>
+
+    </p>
+  </div>
+  
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th class="text-center" style="width: 230px;">Quantity</th>
+      <th class="text-right"style="width: 200px;">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td >
+        <img [src]="p.imageUrl" class="thumbnail">
+      
+      </td>
+      <td>{{p.title}}</td>
+      <td>
+        <product-quantity [product]="p"></product-quantity>
+      </td>
+      
+     
+
+      <td class="text-right">{{p.quantity*p.price | currency:'USD':true}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th class="text-right">{{TotalePrice | currency:'USD':true}}</th>
+    </tr>
+    <tr>
+      <th colspan="4">
+        <a routerLink="/check-out" class="btn btn-primary">Check Out</a>
+      </th>
+    </tr>
+  </tfoot>
+</table> 
+
+</div>

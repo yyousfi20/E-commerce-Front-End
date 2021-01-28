@@ -1,0 +1,51 @@
+
+
+<div class="container">
+<div class="row">
+    
+<div class="card" style="border: none;" >
+  <div class="col-md-3">
+    <img  class="card-img-top" style="background-size:100% 100%;width: 22rem;"   [src]="product.imageUrl"  *ngIf="product.imageUrl">
+</div>
+    </div>
+<div class="col-md-4">
+    <div class="card-body" >
+        <h4 class="card-title"> {{ product.title }}</h4>
+        <p class="card-text">{{ product.price | currency:'USD':true }}</p>
+        
+    </div>
+  
+    
+  
+</div>
+
+  </div>
+</div>
+ 
+<div class="card" style="width: 100%;">
+  <div class="card-body">
+<div class="container">
+  
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Description</a>
+    </li>
+   
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+
+      <h6>Description of the product</h6>
+      <p>{{  product.description }}</p>
+
+
+    </div>
+   
+  
+  </div>
+</div>
+  </div></div>

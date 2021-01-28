@@ -1,0 +1,80 @@
+
+
+
+<div class="container">
+  <h2>Category</h2>
+  <!-- Button to Open the Modal -->
+  
+<style>
+
+  .form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0; 
+}
+  
+</style>
+  <div class="form-group">
+    <div class ="row">
+      <div class="col-md-3">
+    <input #query1
+    (keyup)="filter(query1.value)" id="exampleFormControlInput6" type="email" placeholder="What're you looking for? " class="form-control form-control-underlined">
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3" style="padding-left: 7%;">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" >
+     Add new Category
+    </button></div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-category-form></app-category-form>
+      </div>
+   
+    </div>
+  </div>
+</div>
+  <!-- The Modal -->
+  
+  
+</div>
+
+
+<data-table 
+ [items]="items"
+ [itemCount]="itemCount"
+ (reload)="reloadItems($event)"
+
+>
+<data-table-column 
+[property]="'name'"
+[header]="' Title'"
+[sortable]="true"
+[resizable]="true"
+></data-table-column>
+
+
+
+ <data-table-column
+[property]="'id'"
+>
+<ng-template #dataTableCell let-item="item" >
+  <div  style="padding-left: 30%;" >
+    <button class="btn btn-light btn-lg" [routerLink]="['/admin/category/', item.id]"><i class="fa fa-edit"></i></button>
+    <button  style="text-align: center;" (click)="delete(item.id)" class="btn btn-light btn-lg" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+  </div></ng-template>
+</data-table-column>
+
+</data-table>
+
